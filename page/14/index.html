@@ -259,6 +259,173 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/apache虚拟主机-配置/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="HF | 知易行难">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/psb.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="HF | 知易行难">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="HF | 知易行难" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/30/apache虚拟主机-配置/" itemprop="url">
+                  apache虚拟主机 配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T10:41:34+08:00">
+                2016-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/30/apache虚拟主机-配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/apache虚拟主机-配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/30/apache虚拟主机-配置/" class="leancloud_visitors" data-flag-title="apache虚拟主机 配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>apache虚拟主机的配置步骤：</p>
+<p>1、启用httpd-vhosts.conf文件<br>用conf/httpd.conf找到httpd-vhosts.conf，去掉前面注释“#”；</p>
+<p>2、配置httpd-vhosts.conf<br>配置方法一：一个IP绑定多个域名的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;virtualhost *:80=&quot;&quot;&gt;</span><br><span class="line">    DocumentRoot &quot;D:/a_com&quot;</span><br><span class="line">    ServerName www.baidu.com</span><br><span class="line">    DirectoryIndex index.html index.php</span><br><span class="line"> &lt;directory&gt;</span><br><span class="line">  Option FollowSymLinks</span><br><span class="line">  #不允许修改别人修改我们的页面</span><br><span class="line">  AllowOverride None</span><br><span class="line">  #设置访问权限</span><br><span class="line">  Order allow,deny</span><br><span class="line">  Allow from all</span><br><span class="line"> &lt;/directory&gt;</span><br><span class="line">&lt;/virtualhost&gt;</span><br><span class="line">如再绑定别外域名，再添加：</span><br><span class="line">&lt;virtualhost *:80=&quot;&quot;&gt;</span><br><span class="line">    DocumentRoot &quot;D:/b_com&quot;</span><br><span class="line">    ServerName www.sina.com</span><br><span class="line">    DirectoryIndex index.html index.php</span><br><span class="line"> &lt;directory&gt;</span><br><span class="line">  Option FollowSymLinks</span><br><span class="line">  #不允许修改别人修改我们的页面</span><br><span class="line">  AllowOverride None</span><br><span class="line">  #设置访问权限</span><br><span class="line">  Order allow,deny</span><br><span class="line">  Allow from all</span><br><span class="line"> &lt;/directory&gt;</span><br><span class="line">&lt;/virtualhost&gt;</span><br></pre></td></tr></table></figure></p>
+<p>配置方法二：与配置虚拟目录相似<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;virtualhost 127.0.0.2:80=&quot;&quot;&gt;</span><br><span class="line"> DocumentRoot &quot;D:/a_com&quot;</span><br><span class="line"> DirectoryIndex index.html index.php</span><br><span class="line"> &lt;directory&gt;</span><br><span class="line">  Option FollowSymLinks</span><br><span class="line">  #不允许修改别人修改我们的页面</span><br><span class="line">  AllowOverride None</span><br><span class="line">  #设置访问权限</span><br><span class="line">  Order allow,deny</span><br><span class="line">  Allow from all</span><br><span class="line"> &lt;/directory&gt;</span><br><span class="line">&lt;/virtualhost&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3、修改hosts文件（如果是公网IP，则需要到域名管理里面去做配置）<br>在最后一行添加IP与域名的对应<br>127.0.0.2   <a href="http://www.XXX.com" target="_blank" rel="noopener">www.XXX.com</a></p>
+<p>4、重启apache，访问测试成功</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/让DIV的滚动条自动滚动到最底部-–-4种方法/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -921,169 +1088,6 @@ if (!$sms--->send()-&gt;res_code){ //从发送短信的方法中返回的obj中�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/thinkphp-极光推送/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="HF | 知易行难">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/psb.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="HF | 知易行难">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="HF | 知易行难" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/30/thinkphp-极光推送/" itemprop="url">
-                  thinkphp 极光推送
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T10:34:00+08:00">
-                2016-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/30/thinkphp-极光推送/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/thinkphp-极光推送/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/30/thinkphp-极光推送/" class="leancloud_visitors" data-flag-title="thinkphp 极光推送">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>首先到极光推送官网下载PHP SDK<br>官网地址<a href="http://docs.jpush.io/server/php_sdk/" target="_blank" rel="noopener">http://docs.jpush.io/server/php_sdk/</a><br>解压vendor.tar.gz到您的项目,ThinkPHP/Library/Vendor下<br><img src="/images/QQ截图20150924160703.png" alt=""><br>PHP 服务器端代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--?php</span><br><span class="line">namespace Home\Controller;</span><br><span class="line">use Think\Controller;</span><br><span class="line">use JPush\Model as M;</span><br><span class="line">use JPush\JPushClient;</span><br><span class="line">use JPush\Exception\APIConnectionException;</span><br><span class="line">use JPush\Exception\APIRequestException;</span><br><span class="line">class JpushController extends Controller &#123;</span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">    public function index() &#123;</span><br><span class="line">        vendor(&apos;jpush/autoload&apos;);</span><br><span class="line">        $br = &apos;&lt;br/--&gt;&apos;;</span><br><span class="line">        $client = new JPushClient($app_key, $master_secret);</span><br><span class="line"> </span><br><span class="line">        try &#123;</span><br><span class="line">          $result = $client-&gt;push()</span><br><span class="line">                -&gt;setPlatform(M\all)</span><br><span class="line">                -&gt;setAudience(M\all)</span><br><span class="line">                -&gt;setNotification(M\notification(&apos;Hi, JPush&apos;,</span><br><span class="line">                        M\android(&apos;Hi, Android&apos;, &apos;Message Title&apos;, 1, array(&quot;key1&quot;=&gt;&quot;value1&quot;, &quot;key2&quot;=&gt;&quot;value2&quot;,&quot;key3&quot;=&gt;&quot;value3&quot;))              </span><br><span class="line">                    ))</span><br><span class="line">                -&gt;setMessage(M\message(&apos;Message Content&apos;, &apos;Message Title1&apos;, &apos;Message Type&apos;, array(&quot;key1&quot;=&gt;&quot;value1&quot;, &quot;key2&quot;=&gt;&quot;value2&quot;,&quot;key3&quot;=&gt;&quot;value3&quot;)))</span><br><span class="line">                -&gt;send();</span><br><span class="line">            echo &apos;Push Success.&apos; . $br;</span><br><span class="line">            echo &apos;sendno : &apos; . $result -&gt; sendno . $br;</span><br><span class="line">            echo &apos;msg_id : &apos; . $result -&gt; msg_id . $br;</span><br><span class="line">            echo &apos;Response JSON : &apos; . $result -&gt; json . $br;</span><br><span class="line">        &#125; catch (APIRequestException $e) &#123;</span><br><span class="line">            echo &apos;Push Fail.&apos; . $br;</span><br><span class="line">            echo &apos;Http Code : &apos; . $e -&gt; httpCode . $br;</span><br><span class="line">            echo &apos;code : &apos; . $e -&gt; code . $br;</span><br><span class="line">            echo &apos;message : &apos; . $e -&gt; message . $br;</span><br><span class="line">            echo &apos;Response JSON : &apos; . $e -&gt; json . $br;</span><br><span class="line">            echo &apos;rateLimitLimit : &apos; . $e -&gt; rateLimitLimit . $br;</span><br><span class="line">            echo &apos;rateLimitRemaining : &apos; . $e -&gt; rateLimitRemaining . $br;</span><br><span class="line">            echo &apos;rateLimitReset : &apos; . $e -&gt; rateLimitReset . $br;</span><br><span class="line">        &#125; catch (APIConnectionException $e) &#123;</span><br><span class="line">            echo &apos;Push Fail.&apos; . $br;</span><br><span class="line">            echo &apos;message&apos; . $e -&gt; getMessage() . $br;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>标签：</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1131,7 +1135,7 @@ if (!$sms--->send()-&gt;res_code){ //从发送短信的方法中返回的obj中�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">137</span>
+                <span class="site-state-item-count">138</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1149,7 +1153,7 @@ if (!$sms--->send()-&gt;res_code){ //从发送短信的方法中返回的obj中�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">89</span>
+                <span class="site-state-item-count">91</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1189,7 +1193,7 @@ if (!$sms--->send()-&gt;res_code){ //从发送短信的方法中返回的obj中�
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
