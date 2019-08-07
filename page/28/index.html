@@ -259,6 +259,169 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/27/React-native-组件封装与调用/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="HF | 知易行难">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/psb.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="HF | 知易行难">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="HF | 知易行难" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/27/React-native-组件封装与调用/" itemprop="url">
+                  React-native 组件封装与调用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T08:12:02+08:00">
+                2016-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/跨平台移动开发/" itemprop="url" rel="index">
+                    <span itemprop="name">跨平台移动开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/27/React-native-组件封装与调用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/27/React-native-组件封装与调用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/27/React-native-组件封装与调用/" class="leancloud_visitors" data-flag-title="React-native 组件封装与调用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>简单的header组件<br>header.js ，提供一个标题头和触摸返回事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from <span class="string">'react'</span>;</span><br><span class="line">import &#123;</span><br><span class="line">	StyleSheet,</span><br><span class="line">	View,</span><br><span class="line">	Text,</span><br><span class="line">	TextInput,</span><br><span class="line">	TouchableOpacity,</span><br><span class="line">	ToastAndroid</span><br><span class="line">&#125; from <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default class Header extends Component&#123;</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="title">render</span></span>()&#123;</span><br><span class="line">   	<span class="built_in">return</span>(</span><br><span class="line">            &lt;View style=&#123; styles.header &#125;&gt;            </span><br><span class="line">                  &lt;TouchableOpacity onPress=&#123;this.props.onPress&#125;&gt;</span><br><span class="line">			         &lt;Text style=&#123;styles.header_left&#125;&gt;＜&lt;/Text&gt;</span><br><span class="line">	              &lt;/TouchableOpacity&gt;</span><br><span class="line">                  &lt;Text style=&#123;styles.headerText&#125;&gt;&#123;this.props.subject&#125;&lt;/Text&gt;</span><br><span class="line">                &lt;Text&gt; &lt;/Text&gt;</span><br><span class="line">            &lt;/View&gt;</span><br><span class="line">   	);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var styles = StyleSheet.create(&#123;</span><br><span class="line">   header: &#123;</span><br><span class="line">    flexDirection:<span class="string">'row'</span>,</span><br><span class="line">    height: 50,</span><br><span class="line">    backgroundColor: <span class="string">'#778899'</span>,</span><br><span class="line">    paddingTop: 20,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    justifyContent:<span class="string">'space-between'</span></span><br><span class="line">  &#125;,</span><br><span class="line">   header_left:&#123;</span><br><span class="line">  	 color: <span class="string">'#fff'</span>,</span><br><span class="line">     fontSize: 20,</span><br><span class="line">     fontWeight: <span class="string">'bold'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  headerText: &#123;</span><br><span class="line">    color: <span class="string">'#fff'</span>,</span><br><span class="line">    fontSize: 20,</span><br><span class="line">    fontWeight: <span class="string">'bold'</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>新建一个 Form.js 来调用Header的组件<br><img src="/images/QQ截图20160815111408.png" alt="hust"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/25/React-native-调用原生dialog采集数据获取返回值/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -930,7 +1093,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">139</span>
+                <span class="site-state-item-count">140</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -948,7 +1111,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-count">93</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

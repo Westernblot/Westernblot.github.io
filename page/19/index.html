@@ -259,6 +259,167 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/thinkphp-文件上传-下载-，适用于大文件/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="HF | 知易行难">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/psb.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="HF | 知易行难">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="HF | 知易行难" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/29/thinkphp-文件上传-下载-，适用于大文件/" itemprop="url">
+                  thinkphp 文件上传 下载 ，适用于大文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-29T20:58:07+08:00">
+                2016-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/29/thinkphp-文件上传-下载-，适用于大文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/thinkphp-文件上传-下载-，适用于大文件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/29/thinkphp-文件上传-下载-，适用于大文件/" class="leancloud_visitors" data-flag-title="thinkphp 文件上传 下载 ，适用于大文件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">public function uploadify() &#123;</span><br><span class="line">        $upload = new \Think\Upload();</span><br><span class="line">        // 实例化上传类</span><br><span class="line">        $upload -&gt; maxSize = 0;</span><br><span class="line">        // 设置附件上传大小</span><br><span class="line">        //$upload-&gt;exts      =     array(&apos;jpg&apos;, &apos;gif&apos;, &apos;png&apos;, &apos;jpeg&apos;);// 设置附件上传类型</span><br><span class="line">        // $upload-&gt;rootPath =  &apos;./Public/upload/&apos;;</span><br><span class="line">        $upload -&gt; savePath = &apos;&apos;;</span><br><span class="line">        //$upload-&gt;savePath  =     &apos;./editors/&apos;;</span><br><span class="line">        $info = $upload -&gt; upload();</span><br><span class="line">        if (!$info) &#123;// 上传错误提示错误信息</span><br><span class="line">            $this -&gt; error($upload -&gt; getError());</span><br><span class="line">        &#125; else &#123;// 上传成功 获取上传文件信息</span><br><span class="line"> </span><br><span class="line">            foreach ($info as $file) &#123;</span><br><span class="line">                $name = $file[&apos;savename&apos;];</span><br><span class="line">                $path = $file[&apos;savepath&apos;] . $name;</span><br><span class="line"> </span><br><span class="line">            &#125;</span><br><span class="line">            $url = str_replace(&apos;./&apos;, &apos;/&apos;, $path);</span><br><span class="line"> </span><br><span class="line">            //-------本地上传--------</span><br><span class="line">            $data[&apos;error&apos;] = 0;</span><br><span class="line">            $data[&apos;url&apos;] = __ROOT__ . &apos;/Uploads/&apos; . $url;</span><br><span class="line">            $this -&gt; ajaxReturn($data);</span><br><span class="line"> </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//文件下载,file_path 为绝对路径</span><br><span class="line">    function download($file_name=&apos;apicloud.zip&apos;,$file_path=&apos;&apos;) &#123;</span><br><span class="line">        //$file = M(&apos;file&apos;);</span><br><span class="line">        //$data = $file -&gt; find($id);</span><br><span class="line">        //$filepath = $data[&apos;filepath&apos;];</span><br><span class="line">        //$file_name = $data[&apos;filename&apos;];</span><br><span class="line">        //$file_path = &quot;./Public/Uploads/&quot; . $filepath . $file_name;</span><br><span class="line">        // echo $file_path;</span><br><span class="line">        //转码，文件名转为gb2312解决中文乱码</span><br><span class="line">        //$file_name = iconv(&quot;utf-8&quot;, &quot;gb2312&quot;, $file_name);</span><br><span class="line">        //$file_path = iconv(&quot;utf-8&quot;, &quot;gb2312&quot;, $file_path);</span><br><span class="line">        $fp = fopen($file_path, &quot;r&quot;) or exit(&quot;文件不存在&quot;);</span><br><span class="line">        //定义变量空着每次下载的大小</span><br><span class="line">        $buffer = 1024;</span><br><span class="line">        //得到文件的大小</span><br><span class="line">        $file_size = filesize($file_path);</span><br><span class="line">        //header(&quot;Content-type:text/html;charset=gb2312&quot;);</span><br><span class="line">        //会写用到的四条http协议信息</span><br><span class="line">        header(&quot;Content-type:application/octet-stream&quot;);</span><br><span class="line">        header(&quot;Accept-Ranges:bytes&quot;);</span><br><span class="line">        //可以忽略</span><br><span class="line">        header(&quot;Content-Length: &quot; . $file_size);</span><br><span class="line">        //原文这里是Accept-Length经查阅http协议无此项</span><br><span class="line">        header(&quot;Content-Disposition:attachment;filename=&quot; . $file_name);</span><br><span class="line">        //字节技术器，纪录当前现在字节数</span><br><span class="line">        $count = 0;</span><br><span class="line">        while (!feof($fp) &amp;&amp; $file_size - $count &gt; 0) &#123;</span><br><span class="line">            //从$fp打开的文件流中每次读取$buffer大小的数据</span><br><span class="line">            $file_data = fread($fp, $buffer);</span><br><span class="line">            $count += $buffer;</span><br><span class="line">            //将读取到的数据读取出来</span><br><span class="line">            echo $file_data;</span><br><span class="line">        &#125;</span><br><span class="line">        //关闭文件流</span><br><span class="line">        fclose($fp);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/uploadify3-1使用实例/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -901,167 +1062,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/android-画线布局/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="HF | 知易行难">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/psb.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="HF | 知易行难">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="HF | 知易行难" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/29/android-画线布局/" itemprop="url">
-                  android 画线布局
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-29T20:51:06+08:00">
-                2016-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/29/android-画线布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/android-画线布局/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/29/android-画线布局/" class="leancloud_visitors" data-flag-title="android 画线布局">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;1dip&quot; android:background=&quot;#696969&quot;&gt;&lt;/view&gt;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1109,7 +1109,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">139</span>
+                <span class="site-state-item-count">140</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1127,7 +1127,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-count">93</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
